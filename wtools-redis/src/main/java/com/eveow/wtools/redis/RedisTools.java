@@ -1,8 +1,6 @@
 package com.eveow.wtools.redis;
 
-import com.eveow.wtools.redis.lock.RedisFairLock;
 import com.eveow.wtools.redis.lock.RedisLock;
-
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
 /**
@@ -27,15 +25,5 @@ public class RedisTools {
      */
     public RedisLock getLock(String name) {
         return new RedisLock(factory, name);
-    }
-
-    /**
-     * 获取公平锁
-     * 
-     * @param name
-     * @return
-     */
-    public RedisLock getFairLock(String name) {
-        return new RedisFairLock(factory, name);
     }
 }
